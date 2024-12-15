@@ -76,4 +76,4 @@ NewReplicaSet:   monitoring-kube-prometheus-operator-696c7b59b4 (1/1 replicas cr
 Events:
   Type    Reason             Age   From                   Message
   ----    ------             ----  ----                   -------
-  Normal  ScalingReplicaSet  58m   deployment-controller  Scaled up replica set monitoring-kube-prometheus-operator-696c7b59b4 to 1
+  Normal  ScalingReplicaSet  59m   deployment-controller  Scaled up replica set monitoring-kube-prometheus-operator-696c7b59b4 to 1
