@@ -3,8 +3,9 @@ Steps to Install the Prometheus Stack on EKS
 Create an EKS Cluster:
 Use eksctl create cluster to provision a new EKS cluster with managed node groups. Ensure the cluster is operational using kubectl get nodes.
 
-Deploy Applications (Optional):
+Deploy Applications:
 Deploy your application workloads (e.g., microservices) using kubectl apply with appropriate YAML configurations. Verify deployments with kubectl get pods.
+
 
 Install Helm:
 
@@ -33,8 +34,7 @@ helm install monitoring prometheus-community/kube-prometheus-stack -n monitoring
 Verify Installation:
 Check the status of the Prometheus components:
 
-bash
-Copy code
 kubectl --namespace monitoring get pods -l "release=monitoring"
-Access Prometheus/Grafana (Optional):
+
+Access Prometheus/Grafana:
 Expose the Prometheus and Grafana services as LoadBalancers or through port-forwarding for external access.
