@@ -9,33 +9,27 @@ Deploy your application workloads (e.g., microservices) using kubectl apply with
 Install Helm:
 
 Download Helm using the script:
-bash
-Copy code
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 > get_helm.sh
 chmod 700 get_helm.sh
 ./get_helm.sh
+
 Confirm Helm installation: helm version.
+
 Add Prometheus Helm Repository:
 
 Add the repository:
-bash
-Copy code
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-Update Helm repositories:
-bash
-Copy code
-helm repo update
-Create a Namespace for Monitoring:
 
-bash
-Copy code
+Update Helm repositories:
+helm repo update
+
+Create a Namespace for Monitoring:
 kubectl create namespace monitoring
+
 Install Prometheus Stack:
 Use Helm to deploy the Prometheus stack in the monitoring namespace:
-
-bash
-Copy code
 helm install monitoring prometheus-community/kube-prometheus-stack -n monitoring
+
 Verify Installation:
 Check the status of the Prometheus components:
 
