@@ -1,6 +1,6 @@
-# Prometheus Alerting with Email Notifications
+# Configure Alerting with Email Notifications
 
-This project demonstrates how to set up and manage alerts using Prometheus and Alertmanager with Kubernetes. It utilizes three key YAML configuration files: alert-rules.yaml, alert-manager-configuration.yaml, and email-secret.yaml.
+This project demonstrates how to set up and manage alerts using Prometheus and Alertmanager with Kubernetes (Amazon EKS). It utilizes three key YAML configuration files: alert-rules.yaml, alert-manager-configuration.yaml, and email-secret.yaml.
 
 **Objective**: The setup defines monitoring rules for CPU load and Kubernetes pod crashes and sends email notifications when these alerts are triggered.
 
