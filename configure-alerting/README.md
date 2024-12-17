@@ -1,13 +1,12 @@
-**Prometheus Alerting with Email Notifications**
+# Prometheus Alerting with Email Notifications
 
 This project demonstrates how to set up and manage alerts using Prometheus and Alertmanager with Kubernetes. It utilizes three key YAML configuration files: alert-rules.yaml, alert-manager-configuration.yaml, and email-secret.yaml.
 
-Objective: The setup defines monitoring rules for CPU load and Kubernetes pod crashes and sends email notifications when these alerts are triggered.
+**Objective**: The setup defines monitoring rules for CPU load and Kubernetes pod crashes and sends email notifications when these alerts are triggered.
+
+**Alert Rules**:
 
 alert-rules.yaml: This file contains Prometheus alert rules defined under the PrometheusRule custom resource.
-
-Alert Rules:
-
 HostHighCpuLoad: Triggers when the CPU load of a host exceeds 50% for 2 minutes.
 KubernetesPodCrashLooping: Triggers if a pod restarts more than 5 times in a short period.
 Each rule includes labels to classify severity (warning or critical) and annotations to provide detailed descriptions and summaries.
@@ -34,11 +33,12 @@ The authUsername, authIdentity, and authPassword fields in the Alertmanager conf
 
 The Gmail App password in the secret is base64-encoded to ensure security.
 
-Deployment Steps:
+**Deployment Steps**:
 
-Apply the email-secret.yaml file to create the Kubernetes Secret.
-Apply the alert-rules.yaml file to deploy Prometheus rules.
-Apply the alert-manager-configuration.yaml file to configure Alertmanager.
+- Apply the alert-rules.yaml file toto deploy Prometheus rules.
+- Apply the email-secret.yaml file to deploy secret.
+- Apply the alert-manager-configuration.yaml file to configure Alertmanager.
+  
 The Prometheus Operator processes the rules and forwards triggered alerts to Alertmanager.
 
 Alertmanager handles routing and ensures notifications are sent to the configured email.
