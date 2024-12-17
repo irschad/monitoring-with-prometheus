@@ -5,22 +5,21 @@ This project demonstrates how to set up and manage alerts using Prometheus and A
 **Objective**: The setup defines monitoring rules for CPU load and Kubernetes pod crashes and sends email notifications when these alerts are triggered.
 
 **Alert Rules**:
-
 alert-rules.yaml: This file contains Prometheus alert rules defined under the PrometheusRule custom resource.
 HostHighCpuLoad: Triggers when the CPU load of a host exceeds 50% for 2 minutes.
 KubernetesPodCrashLooping: Triggers if a pod restarts more than 5 times in a short period.
 Each rule includes labels to classify severity (warning or critical) and annotations to provide detailed descriptions and summaries.
 
-Namespace: All configurations are deployed in the monitoring namespace.
+Namespace: All configurations are deployed in the *monitoring* namespace.
 
 alert-manager-configuration.yaml: This file defines the routing and email notification settings for alerts.
 
 The AlertmanagerConfig resource specifies a route that filters alerts based on their alertname.
 
 Routes are configured to:
-
-Send HostHighCpuLoad alerts every 30 minutes.
-Send KubernetesPodCrashLooping alerts every 10 minutes.
+- Send HostHighCpuLoad alerts every 30 minutes.
+- Send KubernetesPodCrashLooping alerts every 10 minutes.
+  
 A receiver named email is defined to handle email notifications.
 
 The email receiver is configured to send notifications to a Gmail address via the Gmail SMTP server.
