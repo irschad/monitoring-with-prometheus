@@ -1,20 +1,12 @@
 # Monitoring Redis with Prometheus
 
-This project demonstrates how to monitor a Redis application using Prometheus, Grafana, and Kubernetes. The aim is to provide real-time monitoring, alerting, and visualization of Redis metrics to ensure efficient operation and quick issue resolution.
+This project demonstrates how to monitor a Redis application deployed in Kubernetes (Amazon EKS) using Prometheus and Grafana. The aim is to provide real-time monitoring, alerting, and visualization of Redis metrics to ensure efficient operation and quick issue resolution.
 
 ## Key Features
 
 1. **Deploy Redis Exporter:** Use a Helm chart to deploy the Redis Exporter for Prometheus in a Kubernetes cluster.
 2. **Configure Monitoring:** Set up Prometheus to scrape metrics from Redis Exporter and configure alerts for critical scenarios like downtime or high connection usage.
 3. **Visualize Data in Grafana:** Import a pre-built Redis dashboard in Grafana for detailed metric analysis and troubleshooting.
-
-## Technologies Used
-
-- **Prometheus:** For monitoring and alerting.
-- **Kubernetes:** As the deployment and orchestration platform.
-- **Redis:** The application being monitored.
-- **Helm:** To simplify deployment of the Redis Exporter.
-- **Grafana:** For visualizing Redis metrics.
 
 ## Project Highlights
 
