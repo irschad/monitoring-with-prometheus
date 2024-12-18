@@ -1,4 +1,4 @@
-# Monitoring Redis with Prometheus
+# Monitoring a Third Party Application (Redis) with Prometheus
 
 This project demonstrates how to monitor a Redis application deployed in Kubernetes (Amazon EKS) using Prometheus and Grafana. The aim is to provide real-time monitoring, alerting, and visualization of Redis metrics to ensure efficient operation and quick issue resolution.
 
