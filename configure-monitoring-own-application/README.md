@@ -25,8 +25,8 @@ This project showcases how to set up monitoring for a Node.js application using 
 
 ### 3. Deploy the Application in EKS cluster
 - Define Kubernetes configurations for:
-   Deployment: To run the application through pods.
-   Service: To expose the application within the cluster.
+   - Deployment: To run the application through pods.
+   - Service: To expose the application within the cluster.
 - Create a Docker registry secret:
 
   ```
