@@ -19,21 +19,21 @@ This project showcases how to set up monitoring for a Node.js application using 
 
 ### 2. Build and Push Docker Image
 - Build the Docker image:
-  docker build -t irschad/demo-app:nodeapp .
+  `docker build -t irschad/demo-app:nodeapp .`
 - Push the Docker image to DockerHub:
-  docker push irschad/demo-app:nodeapp
+  `docker push irschad/demo-app:nodeapp`
 
 ### 3. Deploy the Application in Kubernetes
 - Define Kubernetes configurations for:
    Deployment: To run the application through pods.
    Service: To expose the application within the cluster.
 - Create a Docker registry secret:
-  kubectl create secret docker-registry my-registry-key \
+  `kubectl create secret docker-registry my-registry-key \
   --docker-server=https://index.docker.io/v1/ \
   --docker-username=irschad \
-  --docker-password=***
+  --docker-password=***`
 - Apply the Kubernetes configuration:
-   kubectl apply -f k8s-config.yaml
+   `kubectl apply -f k8s-config.yaml`
 - Verify the deployment and access the application.
 
 ### 4. Configure Prometheus
@@ -44,8 +44,8 @@ This project showcases how to set up monitoring for a Node.js application using 
 
 ### 5. Visualize Metrics in Grafana
 - Create a dashboard and add visualization panels (Add Prometheus as a data source.)
-- Requests per Second: Query using rate(http_request_operations_total[2m]).
-- Request Duration Trends: Query using rate(http_request_duration_seconds_sum[2m]).
+- Requests per Second: Query using `rate(http_request_operations_total[2m])`.
+- Request Duration Trends: Query using `rate(http_request_duration_seconds_sum[2m])`.
 - Save the dashboard and customize it as needed.
 
 
