@@ -1,6 +1,6 @@
 # Demo Project: Configure Monitoring for Own Application
 
-This project showcases how to set up monitoring for a Node.js application using **Prometheus**, **Kubernetes**, **Grafana**, and **Docker**. The aim is to collect, expose, and visualize metrics, providing insights into the application's performance and behavior.
+This project showcases how to set up monitoring for a Node.js application using **Prometheus**, **Kubernetes (Amazon EKS)**, **Grafana**, and **Docker**. The aim is to collect, expose, and visualize metrics, providing insights into the application's performance and behavior.
 
 ## Project Objectives
 - Enable the application to collect and expose metrics.
@@ -23,15 +23,20 @@ This project showcases how to set up monitoring for a Node.js application using 
 - Push the Docker image to DockerHub:
   `docker push irschad/demo-app:nodeapp`
 
-### 3. Deploy the Application in Kubernetes
+### 3. Deploy the Application in EKS cluster
 - Define Kubernetes configurations for:
    Deployment: To run the application through pods.
    Service: To expose the application within the cluster.
 - Create a Docker registry secret:
+
   `kubectl create secret docker-registry my-registry-key \
+
   --docker-server=https://index.docker.io/v1/ \
+
   --docker-username=irschad \
+
   --docker-password=***`
+
 - Apply the Kubernetes configuration:
    `kubectl apply -f k8s-config.yaml`
 - Verify the deployment and access the application.
