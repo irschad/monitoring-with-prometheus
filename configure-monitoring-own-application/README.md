@@ -28,10 +28,12 @@ This project showcases how to set up monitoring for a Node.js application using 
    Deployment: To run the application through pods.
    Service: To expose the application within the cluster.
 - Create a Docker registry secret:
-  kubectl create secret docker-registry my-registry-key \
+
+  ```kubectl create secret docker-registry my-registry-key \
   --docker-server=https://index.docker.io/v1/ \
   --docker-username=irschad \
   --docker-password=***
+  ```
 
 - Apply the Kubernetes configuration:
    `kubectl apply -f k8s-config.yaml`
