@@ -1,40 +1,84 @@
-Steps to Install the Prometheus Stack on EKS
+# Install Prometheus Stack on EKS
 
-Create an EKS Cluster:
-Use eksctl create cluster to provision a new EKS cluster with managed node groups. Ensure the cluster is operational using kubectl get nodes.
+## Project Overview
+**Project:** Install Prometheus Stack in Kubernetes  
+**Technologies:** Prometheus, Kubernetes, Helm, AWS EKS, eksctl, Grafana, Linux  
 
-Deploy Applications:
-Deploy your application workloads (e.g., microservices) using kubectl apply with appropriate YAML configurations. Verify deployments with kubectl get pods.
+### Project Description:
+- Setup an EKS cluster using `eksctl`.
+- Deploy Prometheus, Alertmanager, and Grafana as part of the Prometheus Operator using Helm charts.
 
+---
 
-Install Helm:
+## Steps to Install the Prometheus Stack on EKS
 
-Download Helm using the script:
+### 1. Create an EKS Cluster
+Use the following command to provision a new EKS cluster with managed node groups:  
+```bash
+eksctl create cluster
+```
+Ensure the cluster is operational:  
+```bash
+kubectl get nodes
+```
+
+### 2. Deploy Applications
+Deploy your application workloads (e.g., microservices) using the appropriate YAML configurations:  
+```bash
+kubectl apply -f config-microservices.yaml
+```
+Verify the deployments:  
+```bash
+kubectl get pods
+```
+
+### 3. Install Helm
+Download and install Helm:  
+```bash
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 > get_helm.sh
 chmod 700 get_helm.sh
 ./get_helm.sh
+```
+Confirm Helm installation:  
+```bash
+helm version
+```
 
-Confirm Helm installation: helm version.
-
-Add Prometheus Helm Repository:
-
-Add the repository:
+### 4. Add Prometheus Helm Repository
+Add the Prometheus Helm chart repository:  
+```bash
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-
-Update Helm repositories:
+```
+Update Helm repositories:  
+```bash
 helm repo update
+```
 
-Create a Namespace for Monitoring:
+### 5. Create a Namespace for Monitoring
+Create a dedicated namespace for monitoring components:  
+```bash
 kubectl create namespace monitoring
+```
 
-Install Prometheus Stack:
-Use Helm to deploy the Prometheus stack in the monitoring namespace:
+### 6. Install Prometheus Stack
+Deploy the Prometheus stack in the `monitoring` namespace:  
+```bash
 helm install monitoring prometheus-community/kube-prometheus-stack -n monitoring
+```
 
-Verify Installation:
-Check the status of the Prometheus components:
-
+### 7. Verify Installation
+Check the status of the Prometheus components:  
+```bash
 kubectl --namespace monitoring get pods -l "release=monitoring"
+```
 
-Access Prometheus/Grafana:
-Expose the Prometheus and Grafana services as LoadBalancers or through port-forwarding for external access.
+### 8. Access Prometheus/Grafana
+Expose the Prometheus and Grafana services for external access:  
+- **Option 1:** Use LoadBalancers.
+- **Option 2:** Use port-forwarding.
+
+For port-forwarding, you can run:
+```bash
+kubectl port-forward svc/<service-name> <local-port>:<service-port> -n monitoring
+```
+
