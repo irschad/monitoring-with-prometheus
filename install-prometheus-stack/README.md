@@ -241,7 +241,7 @@ Expose the Prometheus and Grafana services for external access:
 - **Option 1:** Use LoadBalancers.
 - **Option 2:** Use port-forwarding.
 
-For port-forwarding, you can run:
+For port-forwarding, run:
 ```bash
 kubectl port-forward svc/<service-name> <local-port>:<service-port> -n monitoring
 ```
